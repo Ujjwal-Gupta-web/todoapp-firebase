@@ -1,11 +1,32 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState ,useReducer } from 'react'
 import { Navigate } from 'react-router';
 import { auth, firestore } from '../firebase-config';
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import Todo from '../components/Todo';
 
+
+// const ACTIONS={
+//     ADD_TODO:"add-todo",
+//     EDIT_TODO:"edit-todo",
+//     DELETE_TODO:"delete-todo",
+// }
+  
+//   function reducer(todo_test,action){
+//     switch(action.type){
+//       case ACTIONS.ADD_TODO:
+//       case ACTIONS.EDIT_TODO:
+//       case ACTIONS.DELETE_TODO:
+//       default: return todo_test
+//     }
+//   }
+
+
+
+
 const Dashboard = () => {
+
+    // const [todo_test,dispatch]=useReducer(reducer,[]);
 
     let [user, setUser] = useState({});
     let [todos, setTodos] = useState([]);

@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, {  useState } from 'react'
 import { doc, deleteDoc, setDoc } from "firebase/firestore";
 import { firestore } from '../firebase-config';
+
 
 const Todo = ({ obj }) => {
 
@@ -24,7 +25,7 @@ const Todo = ({ obj }) => {
   async function setValue() {
     const cityRef = doc(firestore, 'todo-collection', id);
     let today = new Date().toLocaleDateString()
-    setDoc(cityRef, { title: edited_title, description: edited_description, email: email, date: today });
+    setDoc(cityRef, { title: document.getElementById("edittodo_title").value, description: document.getElementById("edittodo_description").value, email: email, date: today });
     window.location.reload();
   }
 
